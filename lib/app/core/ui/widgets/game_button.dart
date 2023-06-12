@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:games_free/app/core/ui/styles/text_styles.dart';
 
 class GameButton extends StatelessWidget {
   final String label;
@@ -28,8 +29,12 @@ class GameButton extends StatelessWidget {
         onPressed: onPressed,
         style: style,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text(label),
+            Text(
+              label,
+              style: context.textStyles.textButton,
+            ),
             Icon(icon),
           ],
         ),

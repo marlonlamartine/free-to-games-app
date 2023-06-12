@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:games_free/app/bloc/detail/detail_cubit.dart';
 import 'package:games_free/app/bloc/home/home_cubit.dart';
+import 'package:games_free/app/pages/auth/login/login_page.dart';
+import 'package:games_free/app/pages/auth/register/register_page.dart';
 import 'package:games_free/app/pages/home/home_page.dart';
+import 'package:games_free/app/pages/splash/splash_page.dart';
 import 'package:games_free/app/repositories/games_repository.dart';
 
 class GamesFree extends StatefulWidget {
@@ -32,7 +35,10 @@ class _GamesFreeState extends State<GamesFree> {
         title: 'Free Games',
         debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) => const HomePage(),
+          '/': (context) => const SplashPage(),
+          '/home': (context) => const HomePage(),
+          '/login': (context) => const LoginPage(),
+          '/register': (context) => const RegisterPage(),
         },
       ),
     );

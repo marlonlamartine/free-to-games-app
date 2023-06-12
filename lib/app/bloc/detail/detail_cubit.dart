@@ -15,11 +15,11 @@ class DetailCubit extends Cubit<DetailState> {
       emit(
           state.copyWith(status: DetailStateStatus.loaded, gameDetail: detail));
     } catch (e, s) {
-      log('Erro ao buscar produto', stackTrace: s);
+      log('Erro ao buscar jogo', stackTrace: s);
       emit(
         state.copyWith(
           status: DetailStateStatus.error,
-          errorMessage: 'Erro ao buscar produto \n$e \n$s',
+          errorMessage: 'Erro ao buscar jogo \n$e \n$s',
         ),
       );
     }

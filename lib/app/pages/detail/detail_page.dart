@@ -55,8 +55,21 @@ class _DetailPageState extends State<DetailPage> {
             );
           } else if (state.status == DetailStateStatus.error) {
             return Center(
-              child: Text(
-                state.errorMessage ?? 'Erro',
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: kBackgroundCardColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Infelizmente, o jogo procurado não consta mais na nossa base de dados',
+                      style: context.textStyles.textGameTitle,
+                    ),
+                  ),
+                ),
               ),
             );
           } else if (state.status == DetailStateStatus.loaded) {
@@ -69,10 +82,11 @@ class _DetailPageState extends State<DetailPage> {
                   children: [
                     Center(
                       child: SizedBox(
-                        child: Hero(
-                          tag: gameDetail?.thumbnail ?? '',
-                          child: Image.network(
-                            gameDetail?.thumbnail ?? '',
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: FadeInImage.assetNetwork(
+                            placeholder: 'assets/images/light.png',
+                            image: gameDetail?.thumbnail ?? '',
                           ),
                         ),
                       ),
@@ -165,9 +179,11 @@ class _DetailPageState extends State<DetailPage> {
                                         .map(
                                           (e) => ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(8),
-                                            child: Image.network(
-                                              e.image,
+                                                BorderRadius.circular(12),
+                                            child: FadeInImage.assetNetwork(
+                                              placeholder:
+                                                  'assets/images/light.png',
+                                              image: e.image,
                                             ),
                                           ),
                                         )

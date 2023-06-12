@@ -18,6 +18,11 @@ class TextStyles {
       fontWeight: FontWeight.bold, fontSize: 20, color: kFontColor);
   TextStyle get textComment =>
       primaryText.copyWith(fontSize: 16, color: kFontColor);
+  TextStyle get textButton => primaryText.copyWith(
+        fontSize: 18,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      );
 }
 
 extension TextStylesExtensions on BuildContext {
